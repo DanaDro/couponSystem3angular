@@ -19,7 +19,7 @@ export class CouponsDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     this.coupons = data.coupons;
   }
-s
+
   ngOnInit(): void {
   }
 

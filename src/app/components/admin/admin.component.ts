@@ -84,8 +84,10 @@ export class AdminComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.resultDialogCustomer = result;
+      if(!result){
+        return;
+      }
+      this.resultDialogCompany = result;
 
       if (type === 'Update') {
         console.log(this.resultDialogCustomer);
