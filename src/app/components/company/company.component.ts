@@ -76,9 +76,9 @@ export class CompanyComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // if(!result){
-      //   return;
-      // }
+      if(!result){
+        return;
+      }
       this.resultDialogCoupon = result;
 
       if (type === 'Update') {
