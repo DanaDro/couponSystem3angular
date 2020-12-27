@@ -1,0 +1,45 @@
+<mat-dialog-content mat-dialog-content>
+  <ng-container *ngIf="type==='Update'; else elseTemplate">
+    <h2 mat-dialog-title>Update existing company</h2>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <h2 mat-dialog-title>Create a new company</h2>
+  </ng-template>
+  <form #formInfo="ngForm" class="myform">
+    <div *ngIf="type==='Update'">
+      <small>Id</small><br>
+      <input [disabled]="true" matInput [(ngModel)]="company.id" placeholder="id" name="id">
+    </div>
+    <ng-container *ngIf="type==='Update'; else elseTemplate2">
+      <small>name</small><br>
+      <input [disabled]="true" matInput [(ngModel)]="company.name" placeholder="name" name="name">
+    </ng-container>
+    <ng-template #elseTemplate2>
+      <small>name</small><br>
+      <input #nameInfo="ngModel" required matInput [(ngModel)]="company.name" placeholder="name" name="name"><br>
+      <span *ngIf="nameInfo.errors?.required && nameInfo.touched">Missing company name</span>
+    </ng-template>
+    <div>
+      <small>email</small><br>
+      <input #emailInfo="ngModel" required email matInput [(ngModel)]="company.email" placeholder="email" name="email">
+      <br>
+      <span *ngIf="emailInfo.errors?.required && emailInfo.touched">Missing email</span>
+      <span *ngIf="emailInfo.invalid && !emailInfo.errors?.required && emailInfo.touched">Invalid email</span>
+    </div>
+    <div>
+      <small>password</small><br>
+      <input #passwordInfo="ngModel" matInput [(ngModel)]="company.password" placeholder="password" required
+        pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})" name="password">
+      <br>
+      <span *ngIf="passwordInfo.errors?.required && passwordInfo.touched">Missing password</span>
+      <span *ngIf="passwordInfo.errors?.pattern && passwordInfo.touched">password should
+        contain 8 characters</span>
+    </div>
+    <br>
+    <div mat-dialog-actions class="buttons">
+      <button mat-button (click)="onNoClick()">Close</button>
+      <button [disabled]="((formInfo.invalid && type==='Create') ||  checkChanges(origin,company) && type==='Update')"
+        mat-button [mat-dialog-close]="company" cdkFocusInitial>{{type}}</button>
+    </div>
+  </form>
+</mat-dialog-content>

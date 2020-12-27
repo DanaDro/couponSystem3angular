@@ -1,0 +1,85 @@
+<div>
+
+  <button class="homeButton" mat-mini-fab  aria-label="Example icon button with a home icon" [routerLink]="['/']"
+  routerLinkActive="router-link-active">
+      <mat-icon mat-mini-fab color="primary" aria-label="Example icon button with a home icon">home</mat-icon>
+  </button>
+  <br><br>
+  <h1>Welcome Admin</h1>
+  <h2>Customer</h2>
+
+  <ng-container *ngIf="customers && customers.length>0; else elseTemplate">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Last Nname</th>
+        <th>First Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Coupons</th>
+        <th><button mat-button (click)="addCustomer()">➕</button></th>
+
+      </tr>
+      <tr *ngFor="let customer of customers">
+        <td>{{customer.id}}</td>
+        <td>{{customer.lastName}}</td>
+        <td>{{customer.firstName}}</td>
+        <td>{{customer.email}}</td>
+        <td class="hidetext">{{customer.password}}</td>
+        <td>
+          <div *ngIf="customer.coupons&&customer.coupons.length>0;else noCoupons">
+            <button mat-raised-button color="primary" (click)="viewCoupons(customer.coupons)">View Coupons</button>
+          </div>
+          <ng-template #noCoupons>
+            No Coupons
+          </ng-template>
+        </td>
+        <td><button mat-button (click)="deleteCustomer(customer)">🗑️</button> | <button mat-button
+            (click)="updateCustomer(customer)">✒️</button></td>
+      </tr>
+    </table>
+
+  </ng-container>
+  <ng-template #elseTemplate>
+    <app-empty-view message='No Coupons For You'></app-empty-view>
+  </ng-template>
+
+  <br>
+
+  <h2>Company</h2>
+
+  <ng-container *ngIf="companies && companies.length>0; else elseTemplate">
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Coupons</th>
+        <th><button mat-button (click)="addCompany()">➕</button></th>
+
+      </tr>
+      <tr *ngFor="let company of companies">
+        <td>{{company.id}}</td>
+        <td>{{company.name}}</td>
+        <td>{{company.email}}</td>
+        <td class="hidetext">{{company.password}}</td>
+        <td>
+          <div *ngIf="company.coupons&&company.coupons.length>0;else noCoupons">
+            <button mat-raised-button color="primary" (click)="viewCoupons(company.coupons)">View Coupons</button>
+          </div>
+          <ng-template #noCoupons>
+            No Coupons
+          </ng-template>
+        </td>
+        <td><button mat-button (click)="deleteCompany(company)">🗑️</button> | <button mat-button
+            (click)="updateCompany(company)">✒️</button></td>
+      </tr>
+    </table>
+
+  </ng-container>
+  <ng-template #elseTemplate2>
+    <app-empty-view message='No Coupons For You'></app-empty-view>
+  </ng-template>
+
+</div>

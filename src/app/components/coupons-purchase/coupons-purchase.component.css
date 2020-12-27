@@ -1,0 +1,53 @@
+table{
+  margin: auto;
+  }
+  table, th,td{
+  border: 1px solid whitesmoke;
+  }
+  tr:nth-child(even){
+  background-color: lightslategray;
+  }
+  tr:nth-child(odd){
+  background-color: hsl(351, 72%, 89%);
+  }
+  tr:first-child{
+  background-color: gray;
+  }
+  div{
+  height: 80%;
+  overflow: auto;
+  text-align: center;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+  .homeButton{
+    background-color: #fff;
+  }
+
+  .green{
+    background-color: green;
+    color: #fff;
+    width:100%;
+    height: 100%;
+  }
+
+  .red{
+    background-color: lightcoral;
+    color: #fff;
+    height: 100%;
+  }
+
+  .button{
+    background-color: rgb(213, 213, 253);
+    text-align: right;
+    margin: 25px 50px 25px 750px;
+
+  }
+
+  img{
+    width: 100px;
+    height: 50%;
+  }

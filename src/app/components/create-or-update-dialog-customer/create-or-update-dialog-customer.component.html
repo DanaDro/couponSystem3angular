@@ -1,0 +1,52 @@
+<mat-dialog-content mat-dialog-content>
+  <ng-container *ngIf="type==='Update'; else elseTemplate">
+    <h2 mat-dialog-title>Update existing customer</h2>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <h2 mat-dialog-title>Create a new customer</h2>
+  </ng-template>
+  <form #formInfo="ngForm" class="myform">
+    <div *ngIf="type==='Update'">
+      <small>Id</small><br>
+      <input [disabled]="true" matInput [(ngModel)]="customer.id" placeholder="id" name="id">
+    </div>
+    <div>
+      <small>last name</small><br>
+      <input #lastInfo="ngModel" required matInput [(ngModel)]="customer.lastName" placeholder="last name" name="last"><br>
+      <span *ngIf="lastInfo.errors?.required && lastInfo.touched">Missing last name</span>
+    </div>
+    <div>
+      <small>first name</small><br>
+      <input #firstInfo="ngModel" required matInput [(ngModel)]="customer.firstName" placeholder="first name"
+        name="first"><br>
+      <span *ngIf="firstInfo.errors?.required && firstInfo.touched">Missing first name</span>
+    </div>
+    <div>
+      <small>email</small><br>
+      <input #emailInfo="ngModel" required email matInput [(ngModel)]="customer.email" placeholder="email"
+        name="email">
+      <br>
+      <span *ngIf="emailInfo.errors?.required && emailInfo.touched">Missing email</span>
+      <span *ngIf="emailInfo.invalid && !emailInfo.errors?.required && emailInfo.touched">Invalid email</span>
+    </div>
+    <div>
+      <small>password</small><br>
+      <input #passwordInfo="ngModel"  matInput [(ngModel)]="customer.password" placeholder="password"
+      required pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})" name="password">
+      <br>
+      <span *ngIf="passwordInfo.errors?.required && passwordInfo.touched">Missing password</span>
+      <span *ngIf="passwordInfo.errors?.pattern && passwordInfo.touched">password should
+        contain 8 characters</span>
+    </div>
+    <!-- <div *ngIf="type==='Update'">
+      <small>coupons</small><br>
+      <input [disabled]="true" matInput [(ngModel)]="customer.coupons" placeholder="coupons" name="coupons">
+    </div> -->
+    <br>
+    <div mat-dialog-actions class="buttons">
+      <button mat-button (click)="onNoClick()">Close</button>
+      <button [disabled]="((formInfo.invalid && type==='Create') ||  checkChanges(origin,customer) && type==='Update')"
+        mat-button [mat-dialog-close]="customer" cdkFocusInitial>{{type}}</button>
+    </div>
+  </form>
+</mat-dialog-content>

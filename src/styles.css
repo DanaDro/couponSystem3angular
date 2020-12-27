@@ -1,0 +1,21 @@
+body{
+background-color: lavender;
+}
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+/* html,body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position:fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  } */

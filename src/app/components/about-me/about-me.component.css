@@ -1,0 +1,19 @@
+h1 {
+  color: #dfacbd;
+  font-family: "Great Vibes", cursive;
+  font-size: 45px;
+  line-height: 80px;
+  font-weight: normal;
+  margin-bottom: 0px;
+  margin-top: 40px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgb(20, 15, 15);
+}
+
+.homeButton{
+  background-color: rgb(255, 255, 255);
+}
+
+div{
+  text-align: center;
+}

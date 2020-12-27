@@ -1,0 +1,66 @@
+<div>
+
+  <button class="homeButton" mat-mini-fab  aria-label="Example icon button with a home icon" [routerLink]="['/']"
+    routerLinkActive="router-link-active">
+    <mat-icon mat-mini-fab color="primary" aria-label="Example icon button with a home icon">home</mat-icon>
+  </button>
+
+  <br>
+  <br>
+  <h1>Hello {{name}}</h1>
+
+  <button class="coupons" mat-button [routerLink]="['/purchaseCoupon']" routerLinkActive="router-link-active"> View All
+    Coupons</button><br>
+<br>
+<br>
+  <div>
+    <label>Max Price</label>
+    <input class="input-element" [(ngModel)]="maxPrice">&nbsp;&nbsp;
+    <label>Category</label>
+    <select class="input-element" [(ngModel)]="category">
+      <option *ngFor="let i of categories" [value]="i">{{i}}</option>
+    </select>&nbsp;
+    <button mat-stroked-button class="search" color="primary" (click)="FilterCoupons()">Search</button>&nbsp;
+    <button class="clear" mat-stroked-button (click)="ngOnInit()">clear</button>
+  </div>
+
+  <br>
+
+  <ng-container *ngIf="coupons && coupons.length>0; else elseTemplate">
+
+    <h2>Your Coupons</h2>
+
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Company Id</th>
+        <th>Category</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>StartDate</th>
+        <th>EndDate</th>
+        <th>Amount</th>
+        <th>Price</th>
+        <th>Image</th>
+      </tr>
+
+      <tr *ngFor="let coupon of coupons">
+        <td>{{coupon.id}}</td>
+        <td>{{coupon.companyId}}</td>
+        <td>{{coupon.category}}</td>
+        <td>{{coupon.title}}</td>
+        <td>{{coupon.description}}</td>
+        <td>{{coupon.startDate | date: 'dd/MM/yy'}}</td>
+        <td>{{coupon.endDate | date: 'dd/MM/yy'}}</td>
+        <td>{{coupon.amount}}</td>
+        <td>{{coupon.price}}</td>
+        <td><img src="{{coupon.image}}"></td>
+
+    </table>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <app-empty-view message='No Coupons For You'></app-empty-view>
+  </ng-template>
+
+
+</div>

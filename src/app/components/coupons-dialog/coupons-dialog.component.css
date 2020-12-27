@@ -1,0 +1,29 @@
+table {
+  margin: auto;
+}
+table,
+th,
+td {
+  border: 1px solid whitesmoke;
+}
+tr:nth-child(even) {
+  background-color: lightslategray;
+}
+tr:nth-child(odd) {
+  background-color: hsl(351, 72%, 89%);
+}
+tr:first-child {
+  background-color: gray;
+}
+
+.example-button-row {
+  text-align: center;
+}
+
+img {
+  width: 100px;
+}
+
+::ng-deep .mat-dialog-container {
+  height: auto;
+}

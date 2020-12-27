@@ -1,0 +1,51 @@
+<div class="container">
+  <br>
+  <br>
+  <h1>Login</h1>
+  <div class="row">
+    <div class="example-container">
+      <form class="example-form" (ngSubmit)="onSubmit(f)" #f='ngForm'>
+        <div class="form-group">
+          <select class="custom-select" id="inputGroupSelect04" name="select" required ngModel #select="ngModel" [(ngModel)]="loginDetails.type">
+            <option disabled value="">Choose your type</option>
+            <option value="Admin">Admin</option>
+            <option value="Company">Company</option>
+            <option value="Customer">Customer</option>
+          </select>
+          <br>
+          <span class="help-block" *ngIf="!select.touched || !select.valid">Must choose type</span>
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label for="exampleInputEmail1">Email address</mat-label>
+          <br>
+          <input matInput type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Insert Email" ngModel name="email" required email [(ngModel)]="loginDetails.email"
+            #email="ngModel">
+          <br>
+          <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email</span>
+          <small id="emailHelp" class="form-text text-muted" *ngIf="email.valid && email.touched">We'll never share your
+            email with anyone else.</small>
+
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label for="exampleInputPassword1">Password</mat-label>
+          <br>
+          <input matInput type="password" class="form-control" id="exampleInputPassword1" placeholder="Insert Password" ngModel
+            name="password" required pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})"
+            [(ngModel)]="loginDetails.password" #password="ngModel">
+          <br>
+          <span class="help-block" *ngIf="!password.valid && password.touched">Invalid password - must contain at
+            least
+            1 lowercase, 1 uppercase , 1 digit . minimum length : 8.</span>
+          <small id="passwordHelp" class="form-text text-muted" *ngIf="password.valid && password.touched">Your password
+            is safe with us.</small>
+        </mat-form-field>
+        <button  mat-raised-button class="btn btn-primary" type="submit" [disabled]="!f.valid" (click)="onNoClick()"> Submit</button>
+      </form>
+      <br>
+
+
+  </div>
+
+
+</div>

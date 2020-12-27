@@ -1,0 +1,79 @@
+table{
+  margin: auto;
+  }
+  table, th,td{
+  border: 1px solid whitesmoke;
+  }
+  tr:nth-child(even){
+  background-color: lightslategray;
+  }
+  tr:nth-child(odd){
+  background-color: hsl(351, 72%, 89%);
+  }
+  tr:first-child{
+  background-color: gray;
+  }
+  div{
+  height: 80%;
+  overflow: auto;
+  }
+
+div{
+  text-align: center;
+}
+
+.hidetext { -webkit-text-security: disc; /* Default */ }
+
+
+.homeButton{
+  background-color: #fff;
+}
+
+.input-element{
+  font-size: 15px;
+  width: 100px;
+  height: 20px;
+  }
+
+.coupons{
+  background-color: rgb(213, 213, 253);
+  margin: 25px 50px 25px 650px;
+}
+
+.filter{
+  text-align: center;
+  background-color: rgb(213, 213, 253);
+}
+
+input, select, label {
+  width: 100px;
+  vertical-align: top;
+}
+
+input{
+  height: 12px;
+}
+
+.search{
+  width: 100px;
+  vertical-align: top;
+
+}
+
+img{
+  width: 100px;
+  height: 50%;
+}
+
+h1, h2{
+  color: black;
+  font-size: 29px;
+  font-style: oblique;
+  font-family: "Libre Baskerville", serif;
+  line-height: 45px;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff;
+  padding-top: 20px;
+
+}
+

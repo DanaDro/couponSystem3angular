@@ -1,0 +1,51 @@
+<div>
+
+  <button class="homeButton" mat-mini-fab aria-label="Example icon button with a home icon" [routerLink]="['/']"
+  routerLinkActive="router-link-active">
+      <mat-icon mat-mini-fab color="primary" aria-label="Example icon button with a home icon">home</mat-icon>
+  </button>
+  <br>
+  <br>
+
+  <h1>View Our Coupons</h1>
+
+  <br>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Company ID</th>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Amount</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th>Action</th>
+
+    </tr>
+    <tr *ngFor="let coupon of coupons">
+      <td>{{coupon.id}}</td>
+      <td>{{coupon.companyId}}</td>
+      <td>{{coupon.category}}</td>
+      <td>{{coupon.title}}</td>
+      <td>{{coupon.description}}</td>
+      <td>{{coupon.startDate | date: 'dd/MM/yy'}}</td>
+      <td>{{coupon.endDate | date: 'dd/MM/yy'}}</td>
+      <td>{{coupon.amount}}</td>
+      <td>{{coupon.price}}</td>
+      <td><img src="{{coupon.image}}"></td>
+
+      <ng-container *ngIf="!isCouponExist(coupon.id); else elseTemplate">
+        <td><button mat-button class="green" (click)="purchaseCoupon(coupon)">Buy</button></td>
+
+      </ng-container>
+      <ng-template #elseTemplate>
+        <td><button mat-button disabled class="red" (click)="purchaseCoupon(coupon)">Purchased</button></td>
+      </ng-template>
+
+    </tr>
+  </table>
+
+</div>

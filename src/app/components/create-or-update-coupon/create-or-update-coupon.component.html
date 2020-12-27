@@ -1,0 +1,85 @@
+<mat-dialog-content mat-dialog-content>
+  <ng-container *ngIf="type==='Update'; else elseTemplate">
+    <h2 mat-dialog-title>Update existing coupon</h2>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <h2 mat-dialog-title>Create a new coupon</h2>
+  </ng-template>
+  <form #formInfo="ngForm" class="myform">
+    <div *ngIf="type==='Update'">
+      <small>Id</small><br>
+      <input [disabled]="true" matInput [(ngModel)]="coupon.id" placeholder="id" name="id">
+      <br>
+      <small>Company Id</small><br>
+      <input [disabled]="true" matInput [(ngModel)]="coupon.companyId" placeholder="company id" name="company id">
+    </div>
+    <div>
+      <small>category</small><br>
+      <select #categoryInfo="ngModel" required matInput [(ngModel)]="coupon.category" placeholder="category" name="category">
+        <option>FOOD</option>
+        <option>ELECTRICITY</option>
+        <option>RESTAURANT</option>
+        <option>VACATION</option>
+        <option>GAMES</option>
+        <option>CLOTH</option>
+      </select>
+     <br>
+      <span *ngIf="categoryInfo.errors?.required && categoryInfo.touched">Missing category</span>
+    </div>
+    <div>
+      <small>title</small><br>
+      <input #titleInfo="ngModel" required matInput [(ngModel)]="coupon.title" placeholder="title"
+        name="title"><br>
+      <span *ngIf="titleInfo.errors?.required && titleInfo.touched">Missing title</span>
+    </div>
+    <div>
+      <small>description</small><br>
+      <input #descriptionInfo="ngModel" required matInput [(ngModel)]="coupon.description" placeholder="description"
+        name="description">
+      <br>
+      <span *ngIf="descriptionInfo.errors?.required && descriptionInfo.touched">Missing description</span>
+    </div>
+    <div>
+      <small>start date</small><br>
+      <input #startDateInfo="ngModel"  matInput [(ngModel)]="coupon.startDate" placeholder="startDate"
+      required name="startDate">
+      <br>
+      <span *ngIf="startDateInfo.errors?.required && startDateInfo.touched">Missing start date</span>
+    </div>
+    <div>
+      <small>end date</small><br>
+      <input #endDateInfo="ngModel"  matInput [(ngModel)]="coupon.endDate" placeholder="endDate"
+      required name="endDate">
+      <br>
+      <span *ngIf="endDateInfo.errors?.required && endDateInfo.touched">Missing end date</span>
+    </div>
+    <div>
+      <small>amount</small><br>
+      <input #amountInfo="ngModel"  matInput [(ngModel)]="coupon.amount" placeholder="amount"
+      required name="amount">
+      <br>
+      <span *ngIf="amountInfo.errors?.required && amountInfo.touched">Missing amount</span>
+    </div>
+    <div>
+      <small>price</small><br>
+      <input #priceInfo="ngModel" matInput [(ngModel)]="coupon.price" placeholder="price"
+      required name="price">
+      <br>
+      <span *ngIf="priceInfo.errors?.required && priceInfo.touched"> Missing price</span>
+    </div>
+    <div>
+      <small>image</small><br>
+      <input #imageInfo="ngModel"  matInput [(ngModel)]="coupon.image" placeholder="please insert image url"
+      required name="image">
+      <br>
+      <span *ngIf="imageInfo.errors?.required && imageInfo.touched"> Missing image</span>
+    </div>
+
+    <br>
+    <div mat-dialog-actions class="buttons">
+      <button mat-button (click)="onNoClick()">Close</button>
+      <button [disabled]="((formInfo.invalid && type==='Create') ||  checkChanges(origin,coupon) && type==='Update')"
+        mat-button [mat-dialog-close]="coupon" cdkFocusInitial>{{type}}</button>
+    </div>
+  </form>
+</mat-dialog-content>

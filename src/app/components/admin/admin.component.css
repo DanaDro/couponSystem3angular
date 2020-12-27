@@ -1,0 +1,44 @@
+div{
+  text-align: center;
+}
+
+table{
+margin: auto;
+}
+table, th,td{
+border: 1px solid whitesmoke;
+}
+tr:nth-child(even){
+background-color: lightslategray;
+}
+tr:nth-child(odd){
+background-color: hsl(351, 72%, 89%);
+}
+tr:first-child{
+background-color: gray;
+}
+div{
+height: 80%;
+overflow: auto;
+}
+
+.hidetext { -webkit-text-security: disc; /* Default */ }
+
+.a{
+  text-align: right;
+}
+
+.homeButton{
+  background-color: #fff;
+}
+
+h1, h2{
+    color: black;
+    font-size: 29px;
+    font-style: oblique;
+    font-family: "Libre Baskerville", serif;
+    line-height: 45px;
+    text-align: center;
+    text-shadow: 0 1px 1px #fff;
+    padding-top: 20px;
+}

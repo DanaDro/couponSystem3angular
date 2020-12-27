@@ -1,0 +1,52 @@
+<p>
+  <mat-toolbar>
+
+    <mat-accordion style="height:75%; color: black;">
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title style="margin: auto;">
+            <mat-icon>menu</mat-icon>
+          </mat-panel-title>
+          <mat-panel-description>
+            Coupon System
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <a mat-raised-button color="primary" routerLink="aboutWebsite">Instructions</a>
+          </button><br>
+          <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <a mat-raised-button color="primary" routerLink="aboutMe">About Me</a>
+          </button><br>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <span class="spacer"></span>
+
+    <div *ngIf="isLoggedIn();else nothing">
+      <button mat-button aria-label="Example icon-button with heart icon">
+        <a mat-raised-button class="back" (click)="whosLogin()"> Back To My Account</a>
+      </button>
+    </div>
+
+    <ng-template #nothing>
+    </ng-template>
+
+    <div *ngIf="!isLoggedIn();else logoutTemplate">
+      <button mat-button aria-label="Example icon-button with heart icon">
+        <a mat-raised-button class="green" routerLink="login" (click)="openLoginDialog()"> Login</a>
+      </button>
+    </div>
+
+    <ng-template #logoutTemplate>
+      <button mat-raised-button class="red" aria-label="Example icon-button with heart icon" (click)="onLogoutClick()">
+        Logout
+      </button>
+    </ng-template>
+
+
+
+
+
+  </mat-toolbar>
+</p>

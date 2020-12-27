@@ -1,0 +1,14 @@
+img{
+  width: 200px;
+  height: 242px;
+  border: 2px dotted black;
+}
+
+div{
+  text-align: center;
+}
+
+p{
+  font-size: large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}

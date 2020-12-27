@@ -1,0 +1,8 @@
+export enum Category{
+  FOOD,
+	ELECTRICITY,
+	RESTAURANT,
+	VACATION,
+	GAMES,
+	CLOTH
+}

@@ -1,0 +1,13 @@
+span{
+  color: darkred;
+  font-size: small;
+}
+
+.center{
+  height: max-content;
+}
+
+.buttons{
+  margin: auto;
+  display: inline;
+}

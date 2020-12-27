@@ -1,0 +1,57 @@
+div{
+  /* margin: auto; */
+  text-align: center;
+}
+
+.container {
+  /* margin-top: 30px; */
+  /* background-image: url("https://images-na.ssl-images-amazon.com/images/I/61fGphnhucL._AC_SL1500_.jpg"); */
+  /* background-color: #cccccc; */
+  /* width: 1100px; */
+  text-align: center;
+}
+
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+
+span, small{
+  color: rgb(105, 95, 95);
+  font-size: small;
+}
+
+h1{
+  font-style: oblique;
+  font-size: xx-large;
+}
+h4{
+  font-size: x-small;
+}
+
+:placeholder-shown{
+  text-align: center;
+}
+
+p{
+  text-align: left;
+  font-size: small;
+}
+.homeButton{
+  background-color: #fff;
+}
+
+.example-form {
+  min-width: 200px;
+  max-width: 180px;
+  width:80%;
+  margin: auto;
+  text-align: center;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.btn-primary{
+  background-color: grey;
+}
