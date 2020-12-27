@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Customer } from '../../models/Customer';
+import {Coupon} from '../../models/Coupon';
 
 export interface DialogData {
-  coupons: import("c:/Users/danad/Downloads/JohnBryce/Website/Web/couponSystem/src/app/Models/Coupon").Coupon[];
+  coupons: Coupon[];
   customer: Customer;
   type: string;
 
